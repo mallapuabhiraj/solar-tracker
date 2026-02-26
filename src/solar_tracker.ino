@@ -27,7 +27,7 @@ const int LDR_WEST_PIN = A1;    // West-facing LDR
 const int SERVO_PIN    = 9;     // Servo signal pin (PWM)
 
 // --- Tuning Parameters ---
-const int THRESHOLD    = 10;    // Minimum delta to trigger movement.
+const int THRESHOLD    = 25;    // Minimum delta to trigger movement.
                                 // Reliable because averaged readings
                                 // filter out noise before comparison.
 const int STEP_SIZE    = 5;     // Degrees to rotate per control cycle
@@ -36,7 +36,7 @@ const int MAX_ANGLE    = 180;   // Hard limit — West (sunset)
 
 // --- Averaging Parameters ---
 const int AVG_SAMPLES  = 10;    // Readings per LDR per cycle
-const int AVG_DELAY_MS = 2;     // Delay between samples (ms)
+const int AVG_DELAY_MS = 100;     // Delay between samples (ms)
                                 // Filters electrical noise and
                                 // random LDR fluctuations
 
@@ -106,5 +106,5 @@ void loop() {
   }
   // If |delta| <= THRESHOLD → panel is balanced, hold position
 
-  delay(100);   // 100ms between cycles — responsive but not jittery
+  delay(1500);   // 1500ms between cycles
 }
