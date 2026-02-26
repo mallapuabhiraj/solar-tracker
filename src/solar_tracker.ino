@@ -30,13 +30,13 @@ const int SERVO_PIN    = 9;     // Servo signal pin (PWM)
 const int THRESHOLD    = 25;    // Minimum delta to trigger movement.
                                 // Reliable because averaged readings
                                 // filter out noise before comparison.
-const int STEP_SIZE    = 5;     // Degrees to rotate per control cycle
+const int STEP_SIZE    = 3;     // Degrees to rotate per control cycle
 const int MIN_ANGLE    = 0;     // Hard limit — East (sunrise)
 const int MAX_ANGLE    = 180;   // Hard limit — West (sunset)
 
 // --- Averaging Parameters ---
-const int AVG_SAMPLES  = 10;    // Readings per LDR per cycle
-const int AVG_DELAY_MS = 100;     // Delay between samples (ms)
+const int AVG_SAMPLES  = 30;    // Readings per LDR per cycle
+const int AVG_DELAY_MS = 1000;     // Delay between samples (ms)
                                 // Filters electrical noise and
                                 // random LDR fluctuations
 
@@ -106,5 +106,5 @@ void loop() {
   }
   // If |delta| <= THRESHOLD → panel is balanced, hold position
 
-  delay(1500);   // 1500ms between cycles
+  delay(60000);
 }
